@@ -65,39 +65,37 @@ export default function CategoriesPage() {
   };
 
   return (
-    <div className="min-h-screen flex bg-gray-900 text-white">
-     
-
+    <div className="min-h-screen bg-gray-900 text-white">
       {/* Main Content */}
-      <main className="flex-1 p-8 bg-gray-900 overflow-y-auto">
-        <h1 className="text-4xl font-bold text-white mb-6">Categories</h1>
+      <main className="p-4 md:p-8 bg-gray-900 overflow-y-auto ml-0 md:ml-64"> {/* Adjusted padding and margin for small devices */}
+        <h1 className="text-2xl md:text-4xl font-bold text-white mb-4 md:mb-6">Categories</h1>
 
         {/* Search Bar */}
-        <div className="mb-6 flex justify-center items-center space-x-4">
+        <div className="mb-4 md:mb-6 flex justify-start items-center space-x-4">
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => handleSearch(e.target.value)}
             placeholder="Search categories..."
-            className="w-full md:w-1/2 p-3 bg-gray-800 text-white border border-gray-600 rounded-lg shadow-md focus:outline-none focus:ring focus:ring-blue-500"
+            className="w-full p-2 md:p-3 bg-gray-800 text-white border border-gray-600 rounded-lg shadow-md focus:outline-none focus:ring focus:ring-blue-500 text-sm md:text-base"
           />
         </div>
 
         {/* Loading State - Custom Loader */}
         {loading ? (
-          <div className="flex justify-center items-center space-x-2">
-            <FaSpinner className="animate-spin text-teal-500" size={30} />
-            <p className="text-gray-300">Loading categories...</p>
+          <div className="flex justify-start items-center space-x-2">
+            <FaSpinner className="animate-spin text-teal-500" size={24} />
+            <p className="text-gray-300 text-sm md:text-base">Loading categories...</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
             {filteredCategories.length > 0 ? (
               filteredCategories.map((category) => (
                 <div
                   key={category._id}
                   className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300"
                 >
-                  <div className="relative h-64 w-full">
+                  <div className="relative h-40 md:h-64 w-full">
                     <Image
                       src={category.image?.asset?.url || "/placeholder.jpg"}
                       alt={category.title}
@@ -106,14 +104,14 @@ export default function CategoriesPage() {
                       className="rounded-t-lg"
                     />
                   </div>
-                  <div className="p-4">
-                    <h3 className="text-xl font-semibold text-white mb-2">{category.title}</h3>
-                    <p className="text-gray-400">{category.products} Products</p>
+                  <div className="p-3 md:p-4">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-1 md:mb-2">{category.title}</h3>
+                    <p className="text-gray-400 text-sm md:text-base">{category.products} Products</p>
                   </div>
                 </div>
               ))
             ) : (
-              <div className="col-span-4 text-center py-4 text-gray-300">
+              <div className="col-span-4 text-center py-4 text-gray-300 text-sm md:text-base">
                 No categories found.
               </div>
             )}
