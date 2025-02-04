@@ -66,30 +66,7 @@ export default function CategoriesPage() {
 
   return (
     <div className="min-h-screen flex bg-gray-900 text-white">
-      {/* Sidebar */}
-      <aside className="w-64 bg-gray-800 text-white p-6 flex flex-col space-y-6 shadow-lg">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-blue-500">Admin Panel</h1>
-        </div>
-        <button
-          onClick={handleLogout}
-          className="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition duration-300"
-        >
-          Logout
-        </button>
-        {/* Navigation links */}
-        <nav className="mt-8 space-y-4">
-          <a href="#" className="text-lg hover:text-blue-300 transition duration-200">
-            Dashboard
-          </a>
-          <a href="#" className="text-lg hover:text-blue-300 transition duration-200">
-            Categories
-          </a>
-          <a href="#" className="text-lg hover:text-blue-300 transition duration-200">
-            Products
-          </a>
-        </nav>
-      </aside>
+     
 
       {/* Main Content */}
       <main className="flex-1 p-8 bg-gray-900 overflow-y-auto">
